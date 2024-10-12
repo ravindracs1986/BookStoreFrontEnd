@@ -1,0 +1,77 @@
+input {
+    width: 90%;
+    padding: 8px 2px;
+  }
+  
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+  }
+  
+  th {
+    background-color: red;
+    border: 1px solid red;
+  }
+  td {
+    border: 1px solid #dddddd;
+  }
+  td,
+  th {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+  
+  .panel-custom-width {
+    width: 300px !important;
+    max-width: unset !important;
+}
+
+.select-button .mat-select {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.select-button {
+  position: relative;
+}
+
+.mat-mdc-form-field-infix {
+  width: 97px !important;
+}
+.button1 {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+  margin-left: 16px;
+}

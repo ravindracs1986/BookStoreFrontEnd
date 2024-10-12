@@ -1,0 +1,109 @@
+
+<div class="row">
+  <div class="col-8">
+      <div class="card">
+          <div class="card-header bg-success">
+              Library Books List
+          </div>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-12">
+                      <table class="table table-bordered">
+                          <thead>
+                              <tr>
+                                <th>S.no</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>ISBN</th>
+                                <th>Author</th>
+                                <th>Copies</th>
+                                <th class="text-center">Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              @for (item of books; track $index) {
+                                  <tr>
+                                      <td>{{$index+1}}</td>
+                                      <td>{{item.name}}</td>
+                                      <td>{{item.category}}</td>
+                                      <td>{{ item.isbn }}</td>
+                                      <td>{{ item.bookAuthor }}</td>
+                                      <td>{{ item.copies }}</td>
+                                      <td class="text-center">
+                                          <button class="btn btn-primary" (click)="onEdit(item)">Edit</button>
+                                          
+                                      </td>
+                                  </tr>
+                              } 
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-4">
+      <div class="card">
+          <div class="card-header bg-success">
+            Borrowed/Return Books 
+          </div>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-12">
+                      <label for="">Book Name</label>
+                      <input [(ngModel)]="newBookObj.name" type="text" class="form-control"/>
+                  </div>
+                  <div class="col-12">
+                    <label for="">Total Copy</label>
+                    <input [(ngModel)]="newBookObj.copies" type="text" class="form-control"/>
+                </div>
+                <div class="col-12">
+                  <label for="">User Id</label>
+                  <input [(ngModel)]="newBookObj.userId" type="text" class="form-control"/>
+                </div>
+                 
+                
+              </div>
+              <div class="row pt-3">
+
+                <div class="col-6 text-center">
+                  @if(this.newBookObj.name != null && newBookObj.copies==1) {
+                  
+                     <mat-radio-group aria-label="Select an option" class="example-section" [(ngModel)]="labelPosition">
+                      @for (season of seasons; track season) {
+                        <mat-radio-button class="example-margin" [value]="season">{{season}}</mat-radio-button>
+                      }
+
+                    </mat-radio-group>
+
+                  
+                }
+                @if(this.newBookObj.name != null && newBookObj.copies==2) {
+                  <mat-radio-group aria-label="Select an option" class="example-section" [(ngModel)]="labelPosition">
+
+                    @for (season of seasons; track season) {
+                      @if(season=="Borrow"){
+                        <mat-radio-button class="example-margin" [value]="season">{{season}}</mat-radio-button>
+                      }@else{
+                        <mat-radio-button class="example-margin" [value]="season" disabled="">{{season}}</mat-radio-button>
+                      }
+                     
+                    }
+                   
+                  </mat-radio-group>
+                }
+                
+                </div>
+                  <div class="col-6 text-center">
+                    <button class="btn btn-success" (click)="updateBook()" style="margin-top: 10px;">Submit</button>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!--#########################################-->
+
